@@ -96,7 +96,13 @@ public class AppleToastView : UIView, ToastView {
         layer.zPosition = 999
         layer.cornerRadius = config.cornerRadius ?? frame.height / 2
         if #available(iOS 12.0, *) {
-            backgroundColor = traitCollection.userInterfaceStyle == .light ? config.lightBackgroundColor : config.darkBackgroundColor
+            if config.appearanceStyle == .light {
+                backgroundColor = config.lightBackgroundColor
+            } else if config.appearanceStyle == .dark {
+                backgroundColor = config.darkBackgroundColor
+            } else {
+                backgroundColor = traitCollection.userInterfaceStyle == .light ? config.lightBackgroundColor : config.darkBackgroundColor
+            }
         } else {
             backgroundColor = config.lightBackgroundColor
         }

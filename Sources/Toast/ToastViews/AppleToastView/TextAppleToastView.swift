@@ -41,6 +41,14 @@ public class TextToastView : UIStackView {
         self.titleLabel.text = title
         self.titleLabel.numberOfLines = viewConfig.titleNumberOfLines
         self.titleLabel.font = .systemFont(ofSize: 14, weight: .bold)
+        if viewConfig.appearanceStyle == .light {
+            self.titleLabel.textColor = viewConfig.darkBackgroundColor
+        } else if viewConfig.appearanceStyle == .dark {
+            self.titleLabel.textColor = viewConfig.lightBackgroundColor
+        } else {
+            //self.titleLabel.textColor = traitCollection.userInterfaceStyle == .light ? viewConfig.lightBackgroundColor : viewConfig.darkBackgroundColor
+        }
+        
         addArrangedSubview(self.titleLabel)
         
         if let subtitle = subtitle {
