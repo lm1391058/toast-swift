@@ -4,7 +4,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "Toast",
+    name: "ToastViewSwift",
     platforms: [
         .iOS(.v12),
         .tvOS(.v13),
